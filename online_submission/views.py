@@ -181,7 +181,7 @@ def item_view(request, req_ID, item_no):
 	if request.user.is_admin:
 		return render(request, 'online_submission/item_view.html', {'requirement':requirement, 'item': item})
 	else: 
-		submissions = MakeSubmission.objects.filter(requirement=requirement, item_no=item_no) 
+		submissions = MakeSubmission.objects.filter(requirement=requirement, item_no=item_no, user_ID=request.user) 
 		return render(request, 'online_submission/item_view_student.html', {'requirement':requirement, 'item': item, 'submissions':submissions})
 
 
