@@ -1,0 +1,17 @@
+{% extends 'online_submission/base_admin.html' %}
+
+{% block header %}Create an Admin Account!{% endblock %}
+
+{% block content %}
+<center>
+<form action="" method="post">
+    {% csrf_token %}
+
+    <table>
+    {{ form.as_table }}
+	</table>
+
+    <input type="submit" value="Start Today" class="btn btn-lg" style="width: 400px">
+</form>
+</center>
+{% endblock %}

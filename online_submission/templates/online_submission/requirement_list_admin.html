@@ -1,0 +1,25 @@
+{% extends 'online_submission/base_admin.html' %}
+
+{% block header %}Requirements{% endblock %}
+
+{% block content %}
+<table class="table table-striped table-bordered table-hover" style="width:100%">
+	<thead class="thead">
+		<tr>
+		    <th>Requirement</th>
+		    <th>Deadline</th> 
+		    <th>Total Score</th>
+		</tr>
+	</thead>
+{% for requirement in requirements %}
+  <tr class="content">
+    <td><a href="{% url "item_list" req_ID=requirement.id %}">{{requirement.req_name}}</a></td>
+    <td>{{requirement.deadline}}</td> 
+    <td>{{requirement.total_score}}</td>
+  </tr>
+{% endfor %}
+</table>
+<center>
+<a href="{% url "create_requirement" %}"> <button class="btn btn-lg">  Create Requirement </button></a> 
+</center>
+{% endblock %}

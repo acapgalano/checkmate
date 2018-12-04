@@ -1,0 +1,17 @@
+{% extends 'online_submission/base_admin.html' %}
+
+{% block header %}Create Requirement{% endblock %}
+
+{% block content %}
+<center>
+<form action="" method="post">
+    {% csrf_token %}
+
+    <table>
+    {{ form.as_table }}
+	</table>
+
+    <input type="submit" value="Save Requirement" class="btn btn-lg" />
+</form>
+</center>
+{% endblock %}

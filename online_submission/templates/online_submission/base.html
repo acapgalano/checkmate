@@ -1,0 +1,126 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CheckMate</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <style>
+
+    body {
+        background-image: url('{% static 'img/site_bg.png' %}');
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .fakeimg {
+      height: 200px;
+      background: #aaa;
+    }
+
+    .jumbotron {
+      background-image: url("{% static 'img/site_jumbotron_edit.png' %}");
+      background-size: cover;
+      height: 240px;
+    }
+    .navbar {
+        padding: 0;
+        transition: background 0.5s ease-in-out 0s, padding 0.5s ease-in-out 0s;
+    }
+
+    .nav-item{
+        font-family: "Verdana";
+        font-size: 20px;
+        margin-top: 5px;
+        margin-bottom: 0px;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+    .table{
+        text-align: center; 
+        vertical-align: middle;
+        color: #EBF0F5;
+    }
+
+    .thead{
+        background-color: #EBF0F5;
+        color: #7392B7;
+    }
+
+    .req-header{
+        text-align: center; 
+        color: #7392B7;
+        padding-top: 20px;
+    }
+
+    .back-header{
+        margin: auto;
+        width:100%;
+        background-color: #EBF0F5;
+        vertical-align: middle;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+
+    .create-req{
+        vertical-align: middle;
+    }
+
+    .btn{
+        background-color: #FFC1C5;
+        color:#EBF0F5;
+        margin-top: 20px;
+    }
+
+    .main {
+        padding-bottom: 20px;
+    }
+
+  </style>
+</head>
+<body>
+    <div class="jumbotron container-fluid" style="margin-bottom:0">
+    </div>
+    {% if not user.is_anonymous %}
+    <nav class="navbar navbar-expand-xl justify-content-center" style="background-color: #AAAAAA">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <p class="navbar-btn">
+                <a class="nav-link" href="{% url "home_page" %}" style="color:#EBF0F5">Home</a>
+            </p>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url "grades_view" %}" style="color:#EBF0F5">Grades</a>
+          </li>    
+          <li class="nav-item">
+            <a class="nav-link" href="{% url "requirement_list" %}" style="color:#EBF0F5">Requirements</a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" href="/accounts/logout" style="color:#EBF0F5">Logout</a>
+          </li> 
+        </ul>  
+    </nav>
+    {% endif %}
+
+    <div class="container" style="margin-top:30px">
+      <div class="row">
+        <div class="reqs col-xl-2"></div>
+        <div class="col-xl-8 main" style="background-color:#AAAAAA">
+            <div class="back-header"><h1 class="req-header">{% block header %}{% endblock %}</h1></div>
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div class="col-xl-2"></div>
+      </div>
+    </div>
+
+</body>
+</html>

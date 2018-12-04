@@ -1,0 +1,17 @@
+{% extends 'online_submission/base_admin.html' %}
+
+{% block header %}Create an Item in {{requirement.req_name}}{% endblock %}
+
+{% block content %}
+<center>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <table>
+    {{ form.as_table }}
+	</table>
+
+    <input type="submit" value="Save Item" class="btn btn-lg" />
+</form>
+</center>
+{% endblock %}

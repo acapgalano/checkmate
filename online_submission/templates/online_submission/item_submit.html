@@ -1,0 +1,18 @@
+
+{% extends 'online_submission/base.html' %}
+
+{% block header %}Submit Code {{requirement.req_name}} #{{item_no}} {% endblock %}
+
+{% block content %}
+<center>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <table>
+    {{ form.as_table }}
+	</table>
+
+    <input type="submit" value="Upload Submission" class="btn btn-lg" />
+</form>
+</center>
+{% endblock %}

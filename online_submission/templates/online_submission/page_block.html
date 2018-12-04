@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CheckMate</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <style>
+
+    body {
+        background-color: #AAAAAA;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+
+    }
+
+    .page-block{
+    	height: 560px;
+    	width: 630px;
+    	margin-left: auto;
+    	margin-right: auto;
+    }
+
+    img{
+    	max-height: 100%;
+    	max-width: 100%;
+    	margin-top: 20px;
+    }
+
+    .btn{
+    	position: absolute;
+  		top: 80%;
+  		left: 46%;
+  		transform: translate(-50%, -50%);
+  		-ms-transform: translate(-50%, -50%);
+  		background-color: #FFC1C5;
+  		color: #EBF0F5;
+  		font-size: 30px;
+  		padding: 12px 24px;
+  		border: none;
+  		cursor: pointer;
+  		border-radius: 5px;
+    }
+
+  </style>
+</head>
+<body>
+	<div  class="page-block">
+		<img src="{% static 'img/page_block.png' %}">
+		<a href="/accounts/login"><button class="login btn btn-lg">Login</button></a>
+	</div>
+</body>
+</html>

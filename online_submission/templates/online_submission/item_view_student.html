@@ -1,0 +1,44 @@
+{% extends 'online_submission/base.html' %}
+
+{% block header %} {{requirement.req_name}} Item # {{item.item_no}} {% endblock %}
+
+
+{% block content %}
+
+	<table class="table table-striped table-bordered table-hover" style="width:100%">
+		<thead class="thead">
+			<tr>
+			    <th>Timestamp</th>
+			    <th>Submission</th> 
+			    <th>Grade</th>
+			</tr>
+		</thead>
+	  <tr class="content">
+	  	<td> 
+	 	{% if submissions %}
+	 		{{ submissions.0.timestamp }}
+	 	{% endif %}
+		</td>
+	    <td>
+		{% if submissions %}
+	 		{{ submissions.0.file }}
+	 	{% else %}
+	 		Not yet submitted.
+	 	{% endif %}
+		</td> 
+	    <td>{{submissions.0.score}}</td>
+	  </tr>
+	</table>
+	<center>
+		{% if submissions %}
+			<a href="#"><button class="btn btn-lg">Edit Submission</button></a>
+		{% else %}
+			<a href="{% url "item_submit" req_ID=requirement.id item_no=item.item_no %}"><button class="btn btn-lg">Create Submission</button></a>
+		{% endif %}
+
+		<a href="{% url "delete_submission" req_ID=requirement.id item_no=item.item_no %}"><button class="btn btn-lg">Delete Submission</button></a>
+	</center>
+{% endblock %}
+
+
+
